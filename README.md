@@ -1,28 +1,48 @@
-📌 Project Overview
-This project delivers an end-to-end temperature forecasting system for U.S. cities using ~3 million daily records (1995–2019). The pipeline covers data cleaning, feature engineering, model training, and interactive visualization.
+# Temperature Forecasting Using Time Series and Machine Learning
 
-We evaluate five forecasting approaches:
+### Overview
+This project explores temperature forecasting across U.S. cities using time series modeling, ensemble methods, and deep learning. By blending statistical interpretability with machine learning power, it highlights how feature engineering and model diversity can improve climate analytics.
 
-ARIMA & SARIMA – Classic time series models for linear trends and seasonality.
+### Dataset
+Source: NOAA U.S. daily temperature records (1995–2019).
+Size: ~3 million rows.
+Variables: Date, location, min/max/avg temperatures.
 
-Random Forest & XGBoost – Ensemble tree methods capturing complex nonlinear patterns.
+### Methodology
+1. Preprocessing & Feature Engineering
+- Lag features, rolling averages, seasonal indicators
+- Geographic encodings (latitude, longitude)
+2.Modeling Approaches
+- ARIMA / SARIMA → statistical baselines for seasonality
+- Random Forest → stable ensemble benchmark
+- XGBoost → high-accuracy gradient boosting
+- LSTM → deep learning for long-term dependencies
+3. Evaluation Metrics
+- RMSE, MAE, R² for predictive accuracy
+4. Visualization
+- Interactive dashboards comparing city-level forecasts
+- Error distributions and seasonal trend plots
 
-LSTM – Deep learning for long-term temporal dependencies.
+### Results
+#### 1. ARIMA / SARIMA (Statistical Baselines)
+- Captured seasonal cycles and trends effectively, confirming the yearly temperature oscillations.
+- Performance was solid for short-term predictions, but models struggled with extreme temperature anomalies and sudden shifts.
+- Their interpretability made them useful for validating feature engineering decisions.
 
-Key features:
+#### 2. Random Forest
+- Delivered consistent performance across cities without heavy parameter tuning.
+- Handled non-linear relationships better than ARIMA but tended to underestimate peak highs and lows.
+- Best used as a stable reference benchmark with low variance.
 
-Engineered features – Lag values, rolling averages, seasonal indicators, and geographic encodings.
+#### 3. XGBoost
+- Top-performing model overall on RMSE and MAE.
+- Excelled at learning from engineered lag features and seasonal indicators, capturing both short-term fluctuations and long-term cycles.
+- Outperformed Random Forest in predictive sharpness while being faster to train than LSTMs.
 
-Model evaluation – RMSE, MAE, and R² across cities, climates, and seasons.
+#### 4. LSTM (Deep Learning)
+- Strong at learning long-term temporal dependencies and complex sequences.
+- Performed particularly well on multi-step forecasts where trend continuity mattered.
+- However, it required careful hyperparameter tuning and more computational resources to avoid overfitting.
 
-Interactive dashboards – Compare forecasts to actual data and explore error metrics spatially and seasonally.
-
-Use Cases:
-
-Agriculture – Protect crops from frost and plan harvests.
-
-Energy – Balance supply and demand during weather extremes.
-
-Urban Planning – Prepare for heat waves or cold spells.
-
-NOTE: All the Important files are in Project Resources.md
+### Conclusion
+The project demonstrates that ensemble and deep learning models outperform classical statistical approaches for large-scale temperature forecasting. By combining engineered temporal features with XGBoost and LSTM, forecasts become more accurate and generalizable. These methods can aid climate monitoring, agricultural planning, and energy demand forecasting.
